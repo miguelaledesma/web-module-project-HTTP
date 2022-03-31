@@ -9,6 +9,7 @@ import MovieHeader from './components/MovieHeader';
 import FavoriteMovieList from './components/FavoriteMovieList';
 
 import axios from 'axios';
+import EditMovieForm from "./components/EditMovieForm";
 
 const App = (props) => {
   const [movies, setMovies] = useState([]);
@@ -44,7 +45,10 @@ const App = (props) => {
         
           <Switch>
             <Route path="/movies/edit/:id">
+            <EditMovieForm setMovies = {setMovies}/>
             </Route>
+
+          
 
             <Route path="/movies/:id">
               <Movie/>
@@ -54,9 +58,14 @@ const App = (props) => {
               <MovieList movies={movies}/>
             </Route>
 
+            
+
             <Route path="/">
               <Redirect to="/movies"/>
             </Route>
+
+            
+
           </Switch>
         </div>
       </div>
